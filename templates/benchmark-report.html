@@ -50,13 +50,17 @@
                         }
                     })
                 }
+        var redraw = function(){
+                document.getElementById('example').draw();
+                }
+        fetchData();
     </script>
     
     
     
 </head>
 
-<body onload="fetchData()">
+<body onload="redraw()">
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
