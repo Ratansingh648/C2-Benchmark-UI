@@ -205,27 +205,29 @@
                     return response.json();
                     })
                 .then(function(response){
-                    console.log(response.columns);
-                    console.log(response.data);
-                    var tempHead = "", tempBody = "";
 
-                        // Column Loop 
-                    for(var colName = 0; colName < response.columns.length; colName++){
-                        tempHead += "<th>" + response.columns[colName] + "</th>";
-                        }
-                    tempHead = "<tr>" + tempHead + "</tr>";
-                    document.getElementById('head').innerHTML = tempHead;
+                    if (response.length && reponse.length > 0) {
+                        console.log(response.columns);
+                        console.log(response.data);
+                        var tempHead = "", tempBody = "";
 
-                        // Data Loop 
-                    for(var row = 0; row < response.data.length; row++){
-                        console.log(response.data[row]);
-                        for(var col = 0; col < response.data[row].length; col++){
-                            tempBody += "<td>" + response.data[row][col] + "</td>";
+                            // Column Loop 
+                        for(var colName = 0; colName < response.columns.length; colName++){
+                            tempHead += "<th>" + response.columns[colName] + "</th>";
                             }
-                        tempBody = "<tr>" + tempBody + "</tr>"; 
-                        }
-                    document.getElementById('body').innerHTML = tempBody;
+                        tempHead = "<tr>" + tempHead + "</tr>";
+                        document.getElementById('head').innerHTML = tempHead;
 
+                            // Data Loop 
+                        for(var row = 0; row < response.data.length; row++){
+                            console.log(response.data[row]);
+                            for(var col = 0; col < response.data[row].length; col++){
+                                tempBody += "<td>" + response.data[row][col] + "</td>";
+                                }
+                            tempBody = "<tr>" + tempBody + "</tr>"; 
+                            }
+                        document.getElementById('body').innerHTML = tempBody;
+                    }
                     })
                 }
 
