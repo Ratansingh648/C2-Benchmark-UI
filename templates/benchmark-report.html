@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/circular-std/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/libs/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/fontawesome/css/fontawesome-all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/vector-map/jqvmap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/jvectormap/jquery-jvectormap-2.0.2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/datatables/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/datatables/buttons.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/datatables/select.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/datatables/fixedHeader.bootstrap4.css') }}">
+    <title>Benchmark Report</title>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+         <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+         <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="/">SMEBOT</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+       <<div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="/">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Data</a>
+                                            <div id="submenu-1-2" class="collapse submenu" style="">
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="bonds">Market Data Bonds</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="loans">Loans</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="fx">Forex Data </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="fospread">Front Office Spread Data</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="curves">Benchmark Curves</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="report">Benchmark Report</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="averages">Averages</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="criteria">Proxy Criteria</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="proxy">Proxy Basket</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="fileUpload">File Upload</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Export</a>
+                                            <div id="submenu-1-1" class="collapse submenu" style="">
+                                                <a class="nav-link" href="export">Export</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h3 class="pageheader-title">Benchmark Report</h3>
+                            <p class="pageheader-text">This table contains the report of C2 benchmark.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/report" class="breadcrumb-link">Benchmark Report</a></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+               
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- data table  -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <p>Benchmark Report can be exported as one of the following types. Click to export the data.</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-striped table-bordered second" style="width:100%">
+                                        <thead id='head'>
+                                    
+                                        <th>Date</th>
+                                        <th>Maturity</th>
+                                        <th>Rate</th>
+                                    
+                                        </thead>
+                                        <tbody id='body'>
+                                        <tr>
+                                            <td>"20-05-1996"</td>
+                                            <td>"30-09-1999"</td>
+                                            <td>19634</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                    
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end data table 
+                    .then(function(response){
+                            var table = document.getElementId('report');
+                            for(var i = 1; i < response.length; i++){
+                                table += '<tr>';
+                                for(var j = 0; j < col.length; j++){
+                                table += '<td>' + j + '</td>';'
+                                }    
+                                table += '</tr>';
+                            }                        
+                        })
+                 -->
+                    <!-- ============================================================== -->
+                </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="{{url_for('static',filename = 'js/jquery/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/bootstrap/bootstrap.bundle.js')}}"></script>    
+    <script src="{{url_for('static',filename = 'js/slimscroll/jquery.slimscroll.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/multi-select/jquery.multi-select.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/libs/main.js')}}"></script>
+    <script>
+        var fetchData =  function(){
+                fetch('http://localhost:5000/data')
+                .then(function(response){
+                    return response.json();
+                    })
+                .then(function(response){
+                    console.log(response.columns);
+                    console.log(response.data);
+                    var tempHead = "", tempBody = "";
+
+                        // Column Loop 
+                    for(var colName = 0; colName < response.columns.length; colName++){
+                        tempHead += "<th>" + response.columns[colName] + "</th>";
+                        }
+                    tempHead = "<tr>" + tempHead + "</tr>";
+                    document.getElementById('head').innerHTML = tempHead;
+
+                        // Data Loop 
+                    for(var row = 0; row < response.data.length; row++){
+                        console.log(response.data[row]);
+                        for(var col = 0; col < response.data[row].length; col++){
+                            tempBody += "<td>" + response.data[row][col] + "</td>";
+                            }
+                        tempBody = "<tr>" + tempBody + "</tr>"; 
+                        }
+                    document.getElementById('body').innerHTML = tempBody;
+
+                    })
+                }
+
+            var fetchDataAsync = async function() {
+                console.log("Called the fetchData");
+                const fetchDataPromise = await fetchData();
+                console.log(fetchDataPromise);
+            }
+
+            fetchDataAsync();
+
+
+    </script>
+    <script src="{{url_for('static',filename = 'js/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/dataTables.buttons.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/data-table.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/jszip/jszip.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/pdfmake/pdfmake.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/pdfmake/vfs_fonts.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/buttons.html5.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/buttons.print.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/buttons.colVis.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/dataTables.rowGroup.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/dataTables.select.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/datatables/dataTables.fixedHeader.min.js')}}"></script>
+    
+
+    
+    
+    
+    
+</body>
+ 
+</html>

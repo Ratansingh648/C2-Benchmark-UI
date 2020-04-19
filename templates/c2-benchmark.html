@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/circular-std/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/libs/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/fontawesome/css/fontawesome-all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/vector-map/jqvmap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/jvectormap/jquery-jvectormap-2.0.2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/daterangepicker/daterangepicker.css') }}">
+    <title>C2 Benchmarking</title>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="/">SMEBot</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="/">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Data</a>
+                                            <div id="submenu-1-2" class="collapse submenu" style="">
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="bonds">Market Data Bonds</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="loans">Loans</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="fx">Forex Data </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="fospread">Front Office Spread Data</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="curves">Benchmark Curves</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="report">Benchmark Report</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="averages">Averages</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="criteria">Proxy Criteria</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="proxy">Proxy Basket</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="fileUpload">File Upload</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Export</a>
+                                            <div id="submenu-1-1" class="collapse submenu" style="">
+                                                <a class="nav-link" href="export">Export</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-finance">
+                <div class="container-fluid dashboard-content">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h3 class="mb-2">C2 Benchmarking </h3>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Generate Benchmark</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="card">
+                                    <h5 class="card-header">Generate Benchmark</h5>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="input-select">Select a Loan ID to generate benchmark</label>
+                                                <select class="form-control" id="input-loan">
+                                                    <option>All</option>
+                                                </select>
+                                                <script>     
+                                                fetch("http://localhost:5000/loanId")
+                                                    .then(function(response){
+                                                        return response.json();
+                                                    })
+                                                    .then(function(response){
+                                                        var select = document.getElementById('input-loan');
+                                                        var arr = response.loanId;
+                                                        for(var i = 0; i < arr.length; i++)
+                                                        {
+                                                            var option = document.createElement("OPTION"),
+                                                            txt = document.createTextNode(arr[i]);
+                                                            option.appendChild(txt);
+                                                            option.setAttribute("value", arr[i])
+                                                            select.insertBefore(option, select.lastChild);
+                                                        }
+     
+                                                    })    
+                                                </script>
+                                            </div>
+                                            <input type='submit' value='Generate Benchmark' class="btn btn-rounded btn-primary"/>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- ============================================================== -->
+                    <!-- end revenue year  -->
+                    <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- ap and ar balance  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end ap and ar balance  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- gross profit  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end gross profit  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- profit margin  -->
+                        <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- end profit margin -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- earnings before interest tax  -->
+                    <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end earnings before interest tax  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- cost of goods  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end cost of goods  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- overdue invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end overdue invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- disputed invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end disputed invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- account payable age  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end account payable age  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- working capital  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end working capital  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- inventory turnover  -->
+                        <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- end inventory turnover -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- jquery 3.3.1  -->
+    <script src="{{url_for('static',filename = 'js/jquery/jquery-3.3.1.min.js')}}"></script>
+    <!-- bootstap bundle js -->
+    <script src="{{url_for('static',filename = 'js/bootstrap/bootstrap.bundle.js')}}"></script>    
+    <!-- slimscroll js -->
+    <script src="{{url_for('static',filename = 'js/slimscroll/jquery.slimscroll.js')}}"></script>
+    
+    <!-- chart chartist js -->
+    <script src="{{url_for('static',filename = 'js/charts/chartist-bundle/chartist.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/chartist-bundle/chartist.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/chartist-bundle/chartist-plugin-threshold.js')}}"></script>
+    
+    <!-- chart C3 js -->
+    <script src="{{url_for('static',filename = 'js/charts/c3charts/c3.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/c3charts/d3-5.4.0.min.js')}}"></script>
+    
+    <!-- chartjs js -->
+    <script src="{{url_for('static',filename = 'js/charts/charts-bundle/Chart.bundle.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/charts-bundle/chartjs.js')}}"></script>
+    
+    <!-- sparkline js -->
+    <script src="{{url_for('static',filename = 'js/charts/sparkline/jquery.sparkline.js')}}"></script>
+    
+  
+    <!-- main js -->
+    <script src="{{url_for('static',filename = 'js/libs/main.js')}}"></script>
+    
+    <!-- gauge js -->
+    <script src="{{url_for('static',filename = 'js/gauge/gauge.min.js')}}"></script>
+    
+    <!-- morris js -->
+    <script src="{{url_for('static',filename = 'js/charts/morris-bundle/raphael.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/morris-bundle/morris.js')}}"></script>
+     
+    <!-- daterangepicker js 
+    <script src="{{url_for('static',filename = 'js/jquery/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/jquery/jquery-3.3.1.min.js')}}"></script>
+     <script src="{{url_for('static',filename = 'js/charts/morris-bundle/morrisjs.html')}}"></script>
+  
+    <script src="../../../../cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="../../../../cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+    $(function() {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+        }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        });
+    });
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/circular-std/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/libs/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/fontawesome/css/fontawesome-all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/vector-map/jqvmap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/jvectormap/jquery-jvectormap-2.0.2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/daterangepicker/daterangepicker.css') }}">
+    <title>File Upload</title>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html">SMEBot</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Data</a>
+                                            <div id="submenu-1-2" class="collapse submenu" style="">
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="bonds">Market Data Bonds</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="loans">Loans</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="fx">Forex Data </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="fospread">Front Office Spread Data</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="curves">Benchmark Curves</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="report">Benchmark Report</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="averages">Averages</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="criteria">Proxy Criteria</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="proxy">Proxy Basket</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="fileUpload">File Upload</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Export</a>
+                                            <div id="submenu-1-1" class="collapse submenu" style="">
+                                                <a class="nav-link" href="export">Export</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-finance">
+                <div class="container-fluid dashboard-content">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                        <!-- basic form  -->
+                        <!-- ============================================================== -->
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="section-block" id="basicform">
+                                    <h3 class="section-title">File Upload</h3>
+                                    <p>Upload Market Data Bonds, Loans, FX, FO Spread and Proxy Criteria Data files here.</p>
+                                    <p>
+                                        {% with messages = get_flashed_messages() %}
+                                           {% if messages %}
+                                             <ul class="flashes">
+                                                {% for message in messages %}
+                                                 <div class="message_flash">{{ message }}</div>
+                                                {% endfor %}
+                                            </ul>
+                                          {% endif %}
+                                         {% endwith %}
+                                        {% block body %}
+                                        {% endblock %}
+                                    </p>
+                                </div>
+                                <div class="card">
+                                    <h5 class="card-header">C2 Benchmarking Data</h5>
+                                    <div class="card-body">
+                                        <form action = "uploader" method = "POST" enctype = "multipart/form-data">
+                                            <div class="custom-file mb-3">
+                                                <input type="file" name="marketbond" class="custom-file-input" id="marketbond"/>
+                                                <label class="custom-file-label" for="customFile">Market Bond Data</label>
+                                            </div>
+                                            <div class="custom-file mb-3">
+                                                <input type="file" name="loan" class="custom-file-input" id="loan">
+                                                <label class="custom-file-label" for="customFile">Loan Data</label>
+                                            </div>
+                                            <div class="custom-file mb-3">
+                                                <input type="file" name="fx" class="custom-file-input" id="fx">
+                                                <label class="custom-file-label" for="customFile">FX Data</label>
+                                            </div>
+                                            <div class="custom-file mb-3">
+                                                <input type="file" name="fospread" class="custom-file-input" id="fospread">
+                                                <label class="custom-file-label" for="customFile">FO Spread Data</label>
+                                            </div>
+                                            <div class="custom-file mb-3">
+                                                <input type="file" name="proxy" class="custom-file-input" id="proxy">
+                                                <label class="custom-file-label" for="customFile">Proxy Criteria Data</label>
+                                            </div>
+                                            <input type='submit' value='Submit and Run Waterfall' class="btn btn-rounded btn-primary"/>
+                                        </form>
+                                    </div>
+                        <!-- ============================================================== -->
+                        <!-- end basic form  -->
+                        <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- end revenue year  -->
+                    <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- ap and ar balance  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end ap and ar balance  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- gross profit  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end gross profit  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- profit margin  -->
+                        <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- end profit margin -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- earnings before interest tax  -->
+                    <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end earnings before interest tax  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- cost of goods  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end cost of goods  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- overdue invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end overdue invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- disputed invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end disputed invoices  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- account payable age  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end account payable age  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- working capital  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end working capital  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- inventory turnover  -->
+                        <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- end inventory turnover -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- jquery 3.3.1  -->
+
+    <script src="{{url_for('static',filename = 'js/jquery/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/bootstrap/bootstrap.bundle.js')}}"></script>    
+    <script src="{{url_for('static',filename = 'js/slimscroll/jquery.slimscroll.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/chartist-bundle/chartist.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/chartist-bundle/chartist.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/chartist-bundle/chartist-plugin-threshold.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/c3charts/c3.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/c3charts/d3-5.4.0.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/charts-bundle/Chart.bundle.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/charts-bundle/chartjs.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/sparkline/jquery.sparkline.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/libs/main.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/gauge/gauge.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/morris-bundle/raphael.min.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/charts/morris-bundle/morris.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/momentjs/moment.min.js')}}"></script>
+
+    
+</body>
+</html>
